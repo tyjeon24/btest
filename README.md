@@ -3,7 +3,7 @@
 This is a sample project demonstrating basic usage of BentoML with XGBoost.
 
 ### Install Dependencies
-
+  
 Install python packages required for running this project:
 
 ```bash
