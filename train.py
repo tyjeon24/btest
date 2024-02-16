@@ -1,10 +1,9 @@
-import xgboost
-
 import bentoml
+import xgboost
 
 if __name__ == "__main__":
     # read in data
-    dtrain = xgboost.DMatrix("data/agaricus.txt.train")
+    dtrain = xgboost.DMatrix(data=[[0], [1], [2], [3], [4]], label=[0, 0, 1, 1, 1])
 
     # specify parameters via dictionary
     param = {
