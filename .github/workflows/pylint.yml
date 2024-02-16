@@ -29,10 +29,19 @@ jobs:
 
       - uses: bentoml/build-bento-action@v1
         id: bento
-      - name: Build and push BentoContainer
-        uses: bentoml/containerize-push-action@v1
+      # - name: Build and push BentoContainer
+      #   uses: bentoml/containerize-push-action@v1
+      #   with:
+      #     bento-tag: ${{ steps.bento.outputs.bento-tag }}
+      #     push: true
+      #     tags: user/app:latest
+      #     secrets: GIT_AUTH_TOKEN=${{ secrets.GIT_AUTH_TOKEN }}
+
+      - uses: docker/build-push-action@v3
         with:
-          bento-tag: ${{ steps.bento.outputs.bento-tag }}
+          context: .
+          file: ./Dockerfile
           push: true
-          tags: user/app:latest
-          secrets: GIT_AUTH_TOKEN=${{ secrets.GIT_AUTH_TOKEN }}
+          tags: ${{ steps.bento.outputs.bento-tag }}
+          secrets: |
+            GIT_AUTH_TOKEN=${{ secrets.GIT_TOKEN }}
