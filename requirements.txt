@@ -1,2 +1,2 @@
-bentoml>=1.0.0
+bentoml<=1.2.1
 xgboost
