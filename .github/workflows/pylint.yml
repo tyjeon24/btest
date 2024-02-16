@@ -32,5 +32,7 @@ jobs:
       - name: Build and push BentoContainer
         uses: bentoml/containerize-push-action@v1
         with:
+          bento-tag: ${{ steps.bento.outputs.bento-tag }}
           push: true
           tags: user/app:latest
+          secrets: GIT_AUTH_TOKEN=${{ secrets.GIT_AUTH_TOKEN }}
