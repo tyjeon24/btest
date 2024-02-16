@@ -35,3 +35,4 @@ jobs:
           bento-tag: ${{ steps.bento.outputs.bento-tag }}
           push: true
           tags: user/app:latest
+          secrets: GIT_AUTH_TOKEN=${{ secrets.GIT_TOKEN }}
